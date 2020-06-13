@@ -29,7 +29,7 @@ class CSVDownloader
         dataset_request_status_code = dataset_request_response.code.to_i
 
         if dataset_request_status_code != 200
-            puts "ERROR FETCHING CDC DATASET: #{ dataset_request_status_code.code }"
+            puts "ERROR FETCHING DATASET: #{ dataset_request_status_code.code }"
         else
             @response_data = dataset_request_response.body
         end

@@ -2,7 +2,11 @@
 
 ---
 
-Fetches latest dataset from CDC and another from the New York Times. Downloads sets as CSV files and parses the files to determine the latest date for which the total US death count is available in both datasets. Calculates the difference.
+Fetches and parses latest New York Times death count csv and exracts the latest figure for the US.
+
+Scrapes the CDC's death count web page and exracts the latest figure for the US.
+
+Calls api.covid19api.com (sourcing from John Hopkins CSSE) and extracts the latest figure for the US.
 
 To run:
-`ruby main.rb`
+`bundle exec ruby main.rb`

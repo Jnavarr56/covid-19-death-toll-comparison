@@ -28,14 +28,15 @@ while latest_available_date == nil
     if latest_cdc_date > latest_nyt_date
         cdc_dataset_date_row -= 2
         while latest_cdc_date > latest_nyt_date
-            latest_cdc_date = DateTime.parse(cdc.csv_rows[cdc_dataset_date_row][DATE_COL])
+
+            latest_cdc_date = DateTime.strptime(cdc.csv_rows[cdc_dataset_date_row][DATE_COL], "%m/%d/%Y")
             cdc_dataset_date_row -= 1
         end
         cdc_dataset_stat_row = cdc_dataset_date_row
     elsif latest_nyt_date > latest_cdc_date
         nyt_dataset_date_row -= 1
         while latest_nyt_date != latest_cdc_date
-            latest_nyt_date = DateTime.parse(nyt.csv_rows[decrement].first)
+            latest_nyt_date = DateTime.parse(nyt.csv_rows[nyt_dataset_date_row].first)
             nyt_dataset_date_row -= 1
         end
         nyt_dataset_stat_row = nyt_dataset_date_row
